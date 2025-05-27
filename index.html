@@ -37,52 +37,65 @@
         transform: scale(1);
       }
     }
+    .showcase-header {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%), 
+                  url('https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/5350/1665350-i-ddd65e9c0cf9') no-repeat center center;
+      background-size: cover;
+      height: 70vh;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
   </style>
 </head>
 <body>
-  <header class="bg-gradient-to-b from-black to-transparent fixed top-0 left-0 right-0 z-40 py-4 px-6">
-    <div class="container mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
-          <i class="fas fa-play text-black"></i>
+  <div class="showcase-header">
+    <header class="bg-gradient-to-b from-black to-transparent py-4 px-6">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-play text-black"></i>
+          </div>
+          <h1 class="text-xl font-bold">Iwájú<span class="text-yellow-500">+</span></h1>
         </div>
-        <h1 class="text-xl font-bold">Iwájú<span class="text-yellow-500">+</span></h1>
-      </div>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#" class="hover:text-yellow-400 transition">Home</a>
-        <a href="#" class="hover:text-yellow-400 transition">Episodes</a>
-        <a href="#" class="hover:text-yellow-400 transition">Characters</a>
-        <a href="#" class="hover:text-yellow-400 transition">Gallery</a>
-      </nav>
-      <button class="md:hidden text-2xl">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
-  <main class="container mx-auto px-4 pt-32 pb-16">
-    <div class="max-w-4xl mb-12">
-      <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">Iwájú</h1>
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">Season 1</span>
-        <span class="text-gray-400">2024</span>
-        <span class="text-gray-400">•</span>
-        <span class="text-gray-400">6 Episodes</span>
-      </div>
-      <p class="text-lg text-gray-300 mb-6">
-        Set in a futuristic Lagos, Nigeria, Iwájú follows the adventures of Tola, a young girl from the wealthy island, 
-        and her best friend Kole, a self-taught tech expert, as they discover a mysterious device that changes their lives forever.
-      </p>
-      <div class="flex space-x-4">
-        <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-8 rounded-full flex items-center transition transform hover:scale-105">
-          <i class="fas fa-play mr-2"></i> Play All
-        </button>
-        <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-full flex items-center transition">
-          <i class="fas fa-plus mr-2"></i> My List
+        <nav class="hidden md:flex space-x-6">
+          <a href="#" class="hover:text-yellow-400 transition">Home</a>
+          <a href="#" class="hover:text-yellow-400 transition">Episodes</a>
+          <a href="#" class="hover:text-yellow-400 transition">Characters</a>
+          <a href="#" class="hover:text-yellow-400 transition">Gallery</a>
+        </nav>
+        <button class="md:hidden text-2xl">
+          <i class="fas fa-bars"></i>
         </button>
       </div>
-    </div>
+    </header>
 
+    <div class="container mx-auto px-4 flex-1 flex items-center">
+      <div class="max-w-4xl">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">Iwájú</h1>
+        <div class="flex items-center space-x-4 mb-6">
+          <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">Season 1</span>
+          <span class="text-gray-400">2024</span>
+          <span class="text-gray-400">•</span>
+          <span class="text-gray-400">6 Episodes</span>
+        </div>
+        <p class="text-lg text-gray-300 mb-6">
+          Set in a futuristic Lagos, Nigeria, Iwájú follows the adventures of Tola, a young girl from the wealthy island, 
+          and her best friend Kole, a self-taught tech expert, as they discover a mysterious device that changes their lives forever.
+        </p>
+        <div class="flex space-x-4">
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-8 rounded-full flex items-center transition transform hover:scale-105">
+            <i class="fas fa-play mr-2"></i> Play All
+          </button>
+          <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-full flex items-center transition">
+            <i class="fas fa-plus mr-2"></i> My List
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container mx-auto px-4 pb-16">
     <h2 class="text-3xl font-bold mb-8 flex items-center">
       <span class="mr-4">Episodes</span>
       <span class="text-yellow-500 text-xl">Season 1</span>
