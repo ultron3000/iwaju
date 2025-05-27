@@ -2,235 +2,190 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Iwájú - Season 1</title>
+  <title>Iwájú - Season 1 | Disney+ Original Series</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Stream all episodes of Iwájú Season 1, the groundbreaking Disney+ animated series set in futuristic Lagos, Nigeria.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #000000, #1a1a2e);
+      min-height: 100vh;
     }
-    ::-webkit-scrollbar-track {
-      background: #111;
+    .episode-card:hover .play-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
     }
-    ::-webkit-scrollbar-thumb {
-      background: #ffcc00;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ffdd33;
-    }
-    
-    /* Custom animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .fade-in {
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-    
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-    
-    /* Glow effect */
-    .glow-effect {
-      position: relative;
-    }
-    
-    .glow-effect::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 204, 0, 0);
-      transition: box-shadow 0.3s ease;
-      pointer-events: none;
-    }
-    
-    .glow-effect:hover::after {
-      box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
-    }
-    
-    /* Gradient text */
     .gradient-text {
-      background: linear-gradient(90deg, #ffcc00, #ff9900);
+      background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-      .movie-card {
-        width: calc(50% - 1rem);
-      }
+    .modal-enter {
+      animation: modalEnter 0.3s ease-out forwards;
     }
-    
-    @media (max-width: 400px) {
-      .movie-card {
-        width: 100%;
+    @keyframes modalEnter {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-black bg-opacity-90 backdrop-blur-sm border-b border-yellow-600/20">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<body>
+  <header class="bg-gradient-to-b from-black to-transparent fixed top-0 left-0 right-0 z-40 py-4 px-6">
+    <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-2">
         <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
-          <i class="fas fa-shield-alt text-black text-xl"></i>
+          <i class="fas fa-play text-black"></i>
         </div>
-        <h1 class="text-2xl font-bold gradient-text">IWÁJÚ</h1>
+        <h1 class="text-xl font-bold">Iwájú<span class="text-yellow-500">+</span></h1>
       </div>
-      
-      <div class="flex items-center space-x-4">
-        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-800 transition">
-          <i class="fas fa-moon text-yellow-500"></i>
-        </button>
-        <button id="search-btn" class="p-2 rounded-full hover:bg-gray-800 transition">
-          <i class="fas fa-search text-yellow-500"></i>
-        </button>
-      </div>
-    </div>
-    
-    <!-- Search Bar (hidden by default) -->
-    <div id="search-bar" class="hidden px-4 pb-4">
-      <div class="relative">
-        <input type="text" placeholder="Search episodes..." 
-               class="w-full bg-gray-900 border border-yellow-600/30 rounded-full py-2 px-4 pl-10 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
-        <i class="fas fa-search absolute left-3 top-3 text-yellow-500"></i>
-      </div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-yellow-400 transition">Home</a>
+        <a href="#" class="hover:text-yellow-400 transition">Episodes</a>
+        <a href="#" class="hover:text-yellow-400 transition">Characters</a>
+        <a href="#" class="hover:text-yellow-400 transition">Gallery</a>
+      </nav>
+      <button class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-4 py-8">
-    <!-- Hero Section -->
-    <section class="mb-12 relative overflow-hidden rounded-xl">
-      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10"></div>
-      <img src="https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/5350/1665350-i-ddd65e9c0cf9" 
-           alt="Iwájú Banner" class="w-full h-64 md:h-96 object-cover">
-      <div class="absolute bottom-0 left-0 z-20 p-6 md:p-8">
-        <h2 class="text-3xl md:text-5xl font-bold mb-2 gradient-text">Season 1</h2>
-        <p class="text-gray-300 mb-4 max-w-lg">A coming-of-age story set in futuristic Lagos, Nigeria, exploring themes of class, innocence, and challenging the status quo.</p>
-        <div class="flex space-x-3">
-          <button class="bg-yellow-600 hover:bg-yellow-700 text-black font-semibold py-2 px-6 rounded-full transition flex items-center">
-            <i class="fas fa-play mr-2"></i> Play All
-          </button>
-          <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-full transition flex items-center">
-            <i class="fas fa-info-circle mr-2"></i> Details
-          </button>
-        </div>
+  <main class="container mx-auto px-4 pt-32 pb-16">
+    <div class="max-w-4xl mb-12">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">Iwájú</h1>
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">Season 1</span>
+        <span class="text-gray-400">2024</span>
+        <span class="text-gray-400">•</span>
+        <span class="text-gray-400">6 Episodes</span>
       </div>
-    </section>
-
-    <!-- Filters -->
-    <div class="flex flex-wrap items-center justify-between mb-8 gap-4">
-      <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
-        <button class="filter-btn active bg-yellow-600 text-black px-4 py-1 rounded-full text-sm font-medium">All</button>
-        <button class="filter-btn bg-gray-800 hover:bg-gray-700 px-4 py-1 rounded-full text-sm font-medium">Animation</button>
-        <button class="filter-btn bg-gray-800 hover:bg-gray-700 px-4 py-1 rounded-full text-sm font-medium">Sci-Fi</button>
-        <button class="filter-btn bg-gray-800 hover:bg-gray-700 px-4 py-1 rounded-full text-sm font-medium">Drama</button>
-        <button class="filter-btn bg-gray-800 hover:bg-gray-700 px-4 py-1 rounded-full text-sm font-medium">Adventure</button>
-      </div>
-      
-      <div class="flex items-center space-x-2">
-        <span class="text-gray-400 text-sm">Sort by:</span>
-        <select class="bg-gray-900 border border-gray-700 text-white text-sm rounded-full px-3 py-1 focus:outline-none focus:ring-1 focus:ring-yellow-500">
-          <option>Release Date</option>
-          <option>Episode Order</option>
-          <option>Popularity</option>
-        </select>
+      <p class="text-lg text-gray-300 mb-6">
+        Set in a futuristic Lagos, Nigeria, Iwájú follows the adventures of Tola, a young girl from the wealthy island, 
+        and her best friend Kole, a self-taught tech expert, as they discover a mysterious device that changes their lives forever.
+      </p>
+      <div class="flex space-x-4">
+        <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-8 rounded-full flex items-center transition transform hover:scale-105">
+          <i class="fas fa-play mr-2"></i> Play All
+        </button>
+        <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-full flex items-center transition">
+          <i class="fas fa-plus mr-2"></i> My List
+        </button>
       </div>
     </div>
 
-    <!-- Episodes Grid -->
-    <section>
-      <h3 class="text-xl font-semibold mb-6 flex items-center">
-        <i class="fas fa-list-ul text-yellow-500 mr-2"></i>
-        Episodes
-      </h3>
-      
-      <div id="movies" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        <!-- Movie cards will be inserted here by JavaScript -->
-      </div>
-    </section>
+    <h2 class="text-3xl font-bold mb-8 flex items-center">
+      <span class="mr-4">Episodes</span>
+      <span class="text-yellow-500 text-xl">Season 1</span>
+    </h2>
+    
+    <div id="episodes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 border-t border-gray-800 mt-12 py-8">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <div class="flex items-center space-x-2">
-            <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-shield-alt text-black text-sm"></i>
-            </div>
-            <span class="text-xl font-bold gradient-text">IWÁJÚ</span>
-          </div>
-          <p class="text-gray-400 text-sm mt-2">© 2024 Iwájú Productions. All rights reserved.</p>
-        </div>
-        
-        <div class="flex space-x-6">
-          <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Playback Modal (hidden by default) -->
-  <div id="playback-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-90">
-    <div class="relative w-full max-w-4xl bg-gray-900 rounded-xl overflow-hidden">
-      <button id="close-modal" class="absolute top-4 right-4 z-50 text-white hover:text-yellow-500 text-2xl">
+  <!-- Modal -->
+  <div id="playback-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90">
+    <div class="relative w-full max-w-4xl bg-gray-900 rounded-xl overflow-hidden modal-enter">
+      <button id="close-modal" class="absolute top-4 right-4 z-50 text-white hover:text-yellow-500 text-2xl transition">
         <i class="fas fa-times"></i>
       </button>
       <div class="aspect-w-16 aspect-h-9">
-        <video id="modal-video" class="w-full" controls>
-          Your browser does not support the video tag.
-        </video>
+        <video id="modal-video" class="w-full" controls poster="https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/5760/1665760-h-84d351053326"></video>
       </div>
       <div class="p-6">
-        <h3 id="modal-title" class="text-2xl font-bold mb-2"></h3>
-        <div class="flex items-center text-gray-400 text-sm mb-4">
-          <span class="mr-4">S1 • E<span id="episode-num"></span></span>
-          <span>45 min</span>
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 id="modal-title" class="text-2xl font-bold mb-1"></h3>
+            <div class="text-gray-400 text-sm">
+              <span>S1 • E<span id="episode-num"></span></span> • 45 min • <span class="text-yellow-500">★ 8.5/10</span>
+            </div>
+          </div>
+          <div class="flex space-x-3">
+            <button class="text-gray-400 hover:text-white transition">
+              <i class="fas fa-share-alt"></i>
+            </button>
+            <button class="text-gray-400 hover:text-white transition">
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+          </div>
         </div>
-        <p id="modal-description" class="text-gray-300 mb-6">
-          Loading description...
-        </p>
-        <div class="flex space-x-3">
-          <button class="bg-yellow-600 hover:bg-yellow-700 text-black font-semibold py-2 px-6 rounded-full transition flex items-center">
+        <p id="modal-description" class="text-gray-300 mb-6"></p>
+        <div class="flex space-x-4">
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-8 rounded-full flex items-center transition transform hover:scale-105">
             <i class="fas fa-play mr-2"></i> Play
           </button>
-          <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-full transition flex items-center">
+          <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-full flex items-center transition">
             <i class="fas fa-plus mr-2"></i> Watchlist
           </button>
+          <button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-full transition">
+            <i class="fas fa-thumbs-up"></i>
+          </button>
+        </div>
+        <div class="mt-6 pt-6 border-t border-gray-800">
+          <h4 class="text-sm font-semibold text-gray-400 mb-2">Starring</h4>
+          <p class="text-gray-300 text-sm">Simisola Gbadamosi, Dayo Okeniyi, Femi Branch, Siji Soetan</p>
         </div>
       </div>
     </div>
   </div>
 
+  <footer class="bg-gray-900 py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
+              <i class="fas fa-play text-black"></i>
+            </div>
+            <h1 class="text-xl font-bold">Iwájú<span class="text-yellow-500">+</span></h1>
+          </div>
+          <p class="text-gray-400 text-sm">© 2024 Disney+ Original Series</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-gray-300 font-semibold mb-3">Navigation</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Home</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Episodes</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Characters</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Gallery</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-gray-300 font-semibold mb-3">Legal</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Terms</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Privacy</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm transition">Cookies</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-gray-300 font-semibold mb-3">Social</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-yellow-400 transition"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-gray-400 hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-gray-400 hover:text-yellow-400 transition"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // Enhanced Episode data with descriptions
     const movies = [
       { 
         title: "The Arrival", 
         year: 2024,
-        video: "https://macdn.hakunaymatata.com/resource/6ae513c45c8ac40f2a6d61336fb47af3.mp4?Expires=1748904288&Signature=3Kk~jscGWA9Ia0n-lSA1~I2IMMrDdpvvH1ZrEPODRtTHRoJ4ljf4e2EfyX8fENeUJYsQPTxBADJTy7lq3zYOorR~p0rGJ-XLsGe7C0Rcr8gHIMPvFM8c4HimcTKYbMxmaB9thVQnEk~9pLMXbp~SjsSw8cFZaNfRXsOuqy9FnCSyDeWisMIx0lrr7qi2vsSYCBt1FDa6Ir9woZvHLL~ZEP-aG46FcHqnuZzYK21Ltd7BOoVsYRmpj1N9ihtn4plTrRVPEIR1pU8UF3gOFasPu7oebBWf2ba~opb83uqUFjAQy3Xfb3p3OIzpbVxmdAPuNCAEy3hIR8INhM-~r05bFg__&Key-Pair-Id=KMHN1LQ1HEUPL", 
+        video: "https://sipt.swobodafocht.sbs/v4/vz/ikqd3/cf-master.txt?v=1729962163", 
         image: "https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/5760/1665760-h-84d351053326",
         runtime: "45 min",
         rating: "8.2/10",
@@ -295,11 +250,7 @@
       }
     ];
 
-    // DOM elements
-    const container = document.getElementById('movies');
-    const searchBtn = document.getElementById('search-btn');
-    const searchBar = document.getElementById('search-bar');
-    const themeToggle = document.getElementById('theme-toggle');
+    const container = document.getElementById('episodes');
     const playbackModal = document.getElementById('playback-modal');
     const closeModal = document.getElementById('close-modal');
     const modalVideo = document.getElementById('modal-video');
@@ -307,98 +258,62 @@
     const modalDescription = document.getElementById('modal-description');
     const episodeNum = document.getElementById('episode-num');
 
-    // Initialize the page
-    function initPage() {
-      // Create movie cards
-      movies.forEach((movie, index) => {
-        const card = document.createElement('div');
-        card.className = `movie-card fade-in delay-${index % 5} glow-effect`;
-        card.innerHTML = `
-          <div class="relative group overflow-hidden rounded-xl cursor-pointer">
-            <img src="${movie.image}" alt="${movie.title}" 
-                 class="w-full h-48 sm:h-56 md:h-64 object-cover rounded-xl transition duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div>
-                <h3 class="text-white font-semibold text-lg">${movie.title}</h3>
-                <p class="text-gray-300 text-sm">${movie.runtime}</p>
-              </div>
-            </div>
-            <div class="absolute top-3 right-3 bg-black bg-opacity-70 text-yellow-500 rounded-full w-10 h-10 flex items-center justify-center">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div class="mt-3">
-            <h3 class="text-white font-medium">${movie.title}</h3>
-            <div class="flex items-center text-gray-400 text-sm mt-1">
-              <span>S1 • E${index + 1}</span>
-              <span class="mx-2">•</span>
-              <span>${movie.runtime}</span>
-            </div>
-          </div>
-        `;
-        
-        card.addEventListener('click', () => {
-          openModal(movie, index + 1);
-        });
-        
-        container.appendChild(card);
-      });
-
-      // Filter buttons
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelector('.filter-btn.active').classList.remove('active', 'bg-yellow-600', 'text-black');
-          this.classList.add('active', 'bg-yellow-600', 'text-black');
-        });
-      });
+    function isStream(url) {
+      return url.includes('.m3u8') || url.includes('.txt');
     }
 
-    // Open modal with movie details
     function openModal(movie, episodeNumber) {
       modalTitle.textContent = movie.title;
       modalDescription.textContent = movie.description;
       episodeNum.textContent = episodeNumber;
       modalVideo.src = movie.video;
-      
+
       playbackModal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      modalVideo.play();
     }
 
-    // Close modal
     function closeModalHandler() {
       playbackModal.classList.add('hidden');
       modalVideo.pause();
+      modalVideo.src = "";
       document.body.style.overflow = '';
     }
 
-    // Event listeners
-    searchBtn.addEventListener('click', () => {
-      searchBar.classList.toggle('hidden');
-    });
-
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('bg-gray-100');
-      document.body.classList.toggle('text-gray-900');
-      document.body.classList.toggle('bg-black');
-      document.body.classList.toggle('text-gray-100');
-      
-      const icon = themeToggle.querySelector('i');
-      if (document.body.classList.contains('bg-black')) {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      } else {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      }
-    });
-
     closeModal.addEventListener('click', closeModalHandler);
-    playbackModal.addEventListener('click', function(e) {
-      if (e.target === this) closeModalHandler();
-    });
 
-    // Initialize the page when loaded
-    window.addEventListener('DOMContentLoaded', initPage);
+    // Render movie cards
+    movies.forEach((movie, index) => {
+      const card = document.createElement('div');
+      card.className = 'episode-card cursor-pointer bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 relative';
+      card.innerHTML = `
+        <div class="relative">
+          <img src="${movie.image}" alt="${movie.title}" class="w-full h-48 md:h-56 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition">
+            <div class="play-icon absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-500 bg-opacity-90 rounded-full w-12 h-12 flex items-center justify-center opacity-0 transition">
+              <i class="fas fa-play text-black"></i>
+            </div>
+          </div>
+          <span class="absolute top-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">${movie.runtime}</span>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-1">
+            <h2 class="text-lg font-semibold">${movie.title}</h2>
+            <span class="text-yellow-500 text-sm">${movie.rating}</span>
+          </div>
+          <p class="text-sm text-gray-400">Episode ${index + 1}</p>
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        if (isStream(movie.video)) {
+          const url = `player.html?title=${encodeURIComponent(movie.title)}&video=${encodeURIComponent(movie.video)}&index=${index}`;
+          window.location.href = url;
+        } else {
+          openModal(movie, index + 1);
+        }
+      });
+      container.appendChild(card);
+    });
   </script>
 </body>
 </html>
